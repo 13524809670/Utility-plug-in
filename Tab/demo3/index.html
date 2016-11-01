@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TAB 选项切换</title>
+	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+	<style type="text/css">
+		/*方案(2)*/
+		div{
+			margin:0;
+			padding:0;
+			width:184px;
+			height:200px;
+			border:1px solid #ccc;
+			display:none;
+		}
+		.tab_btn{
+			margin:0;
+			padding:0;
+			list-style:none;
+			width:200px;
+			overflow:hidden;
+		}
+		.tab_btn li{
+			float:left;
+			width:60px;
+			height:30px;
+			background:#ccc;
+			color:#fff;
+			border:1px solid red; 
+			text-align:center;
+			line-height:30px;
+			cursor:pointer; 
+		}
+		.on{display:block;}
+		.tab_btn li.cur{background:blue;}
+	</style>
+</head>
+<body>
+	<ul class="tab_btn">
+       <li>最新</li>
+       <li class="cur">热门</li>
+       <li>新闻</li>
+	 </ul>
+	 <div>111111111111</div>
+	 <div class="on">22222222222</div>
+	 <div>333333333333</div>
+
+	 <script type="text/javascript">
+	 	$(document).ready(function(){
+	        $(".tab_btn li").click(function(){
+		        $(".tab_btn li").eq($(this).index()).addClass("cur").siblings().removeClass('cur');
+		        
+				$("div").hide().eq($(this).index()).show();
+
+	       //另一种方法: $("div").eq($(".tab_btn li").index(this)).addClass("on").siblings().removeClass('on'); 
+
+	        });
+	    });
+	 </script>
+
+</body>
+</html>

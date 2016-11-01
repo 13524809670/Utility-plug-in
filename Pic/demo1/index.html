@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片特效</title>
+	<script type="text/javascript" src="../../jquery-3.0.0.min.js"></script>
+	<link rel="stylesheet" href="../../public.css" />
+	<style type="text/css">
+		body{
+			background: #999;
+		}
+		ul{
+			width: 665px;
+			height:550px;
+			margin:100px auto;
+			border:9px solid gold;
+		}
+		ul li {
+			float: left;
+			width:200px;
+			height: 250px;
+			cursor: pointer;
+			margin:9px 5px 5px 8px;
+			border:3px solid #fff;
+		}
+		/*ul li.sel{
+			border:3px solid red;
+		}*/
+		ul li:hover{
+			border:3px solid red;
+		}
+	</style>
+</head>
+<body>
+	<ul class="clear">
+		<li class="sel"><img src="../images/1.jpg" alt=""></li>
+		<li><img src="../images/2.jpg" alt=""></li>
+		<li><img src="../images/3.jpg" alt=""></li>
+		<li><img src="../images/4.jpg" alt=""></li>
+		<li><img src="../images/5.jpg" alt=""></li>
+		<li><img src="../images/6.jpg" alt=""></li>
+	</ul>
+
+	<script type="text/javascript">
+		$(function(){
+
+			// 当鼠标经过 li 时
+			$("ul li").mouseover(function(){
+
+				// 当前属性 过度时间为 1s ,透明度为 1
+				$(this).fadeTo(800,1);
+
+				// 当前属性的兄弟属性 过渡时间为 1s , 透明度为 0.3
+				$(this).siblings("li").fadeTo(800,0.3);
+			});
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>banner 三点 轮播 </title>
+	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../public.css">
+	<style type="text/css">
+		h1{text-align: center;font-size: 30px;}
+		/*banner 样式*/
+		.banner{
+			height: 520px;
+			position: relative;
+			overflow: hidden;
+			margin-top: 100px;
+		}
+		.pic_box{
+			width: 1920px;
+			position: absolute;
+			left:50%;
+			margin-left: -960px;
+		}
+		.pic_box li{
+			position: absolute;
+			left: 0;
+			top:0;
+			/*display: none;*/
+		}
+		.banner_btn{
+			width: 90px;
+			position: absolute;
+			left: 50%;
+			margin-left: -45px;
+			bottom:5px;
+		}
+		.banner_btn li{
+			float: left;
+			width: 20px;
+			height: 20px;
+			margin-left: 10px;
+			background-image: url(index_btn_06.png);
+			cursor: pointer;
+		}
+		.banner_btn li.current{background-image: url(public_03.png);}
+	</style>
+</head>
+<body>
+	<h1>淡入淡出【轮播图】</h1>
+	<!-- 轮播图结构 -->
+	<div class="banner">
+		<ul class="pic_box">
+			<li>
+				<a href="index.html">
+					<img src="index_02.jpg" alt="" />
+				</a>
+			</li>
+			<li>
+				<a href="about.html">
+					<img src="news_banner_02.jpg" alt="" />
+				</a>
+			</li>
+			<li>
+				<a href="product.html">
+					<img src="contact_us_02.jpg" alt="" />
+				</a>
+			</li>
+		</ul>
+		<ul class="banner_btn">
+			<li class="current"></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		window.onload=function(){
+			$('.pic_box li').eq(0).show();
+			var num=0;
+			var timer; 
+			var fn=function(){
+				$('.pic_box li').eq(num).stop().fadeOut(1000);
+				num++;
+				if(num>2){num=0;}
+				$('.pic_box li').eq(num).stop().fadeIn(1000);
+				$('.banner_btn li').eq(num).addClass('current').siblings('li').removeClass('current');
+			}
+
+			var fn1=function(){
+				$('.pic_box li').eq(num).stop().fadeOut(1000);
+				$(this).addClass('current').siblings('li').removeClass('current');
+				var i=$(this).index();
+				$('.pic_box li').eq(i).stop().fadeIn(1000);
+				num=i;		
+			}	
+			//轮播间隔时间为 3s
+			timer=setInterval(fn,2000);
+
+			//当鼠标悬浮banner是  取消定时器
+			$('.banner').hover(function(e) {
+				clearInterval(timer);
+			},
+
+			//取消定时器 3s 后继续轮播 
+			function(){
+				clearInterval(timer);
+				timer=setInterval(fn,2000)
+			});
+
+			$('.banner_btn li').click(fn1);
+		}
+	</script>
+</body>
+</html>

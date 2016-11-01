@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手风琴效果</title>
+	<script type="text/javascript" src="../../jquery-3.0.0.min.js"></script>
+	<link rel="stylesheet" href="../../public.css" />
+	<style type="text/css">
+		.box{
+			width: 1010px;
+			height: 802px;
+			margin:50px auto 0;
+			overflow: hidden;
+		}
+		ul{
+			width: 10100px;
+			height: 802px;
+			border:2px solid gold;
+		}
+		ul li{
+			width: 200px;
+			height: 800px;
+			float: left;
+			border:1px dotted red;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+<div class="box">
+	<ul>
+		<li><img src="../images/8.jpg" alt=""></li>
+		<li><img src="../images/p.jpg" alt=""></li>
+		<li><img src="../images/5_02.jpg" alt=""></li>
+		<li><img src="../images/a2.jpg" alt=""></li>
+		<li><img src="../images/3a.jpg" alt=""></li>
+	</ul>
+</div>
+	<script type="text/javascript">
+		$(function(){
+
+			//当鼠标经过 li 时
+			$("ul li").mouseenter(function(){
+
+				// 当前的li 以 1000ms 的速度变宽为 600px 停止，他的相邻 li 以 1000ms 的速度变宽为 100px.
+				$(this).stop().animate({'width':'600px'},1000).siblings('li').stop().animate({'width':'100px'},1000)
+
+			});
+
+			// 当鼠标离开 box 时
+			$(".box").mouseleave(function(){
+
+				//li 以 1000ms 的速度 变宽为 200px 停止
+				$("ul li").stop().animate({'width':'200px'},1000);
+
+			})
+		})
+	</script>
+</body>
+</html>

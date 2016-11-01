@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>返回顶部</title>
+	<script type="text/javascript" src="jquery-3.0.0.min.js"></script>
+	<style type="text/css">
+		/*返回顶部样式*/
+		.gotop{
+			width: 38px;
+			height: 40px;
+			display: block;
+			position: fixed;
+			left:50%;
+			bottom:100px;
+			margin-left: 610px;
+			background: url(../images/index_pic_gotop_32.jpg) no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<span onclick="goTop();return false;" class="gotop"></span>
+	<script type="text/javascript">
+
+		//到第二屏显示返回顶部按钮(方案1)
+		$(window).scroll(function(){ //只要窗口滚动,就触发下面代码
+			var scrollt = document.documentElement.scrollTop + document.body.scrollTop; //获取滚动后的高度
+		    if( scrollt > 700 ){ //判断滚动后高度超过200px,就显示
+		        $(".gotop").fadeIn(400); //淡出
+		    }
+		    else{
+		        $(".gotop").stop().fadeOut(400); //如果返回或者没有超过,就淡入.必须加上stop()停止之前动画,否则会出现闪动
+		    }
+		});
+
+		//到第二屏显示返回顶部按钮(方案2)
+		$(window).bind('scroll',function(){ 
+
+			if ($(document).scrollTop() >200) { 
+
+				$(".gotop").show(1); 
+
+			}
+			else{ 
+
+				$(".gotop").hide(1); 
+
+			} 
+		}) 
+
+
+
+
+		//返回顶部
+		$(".gotop").on("click",function(){
+			$("html,body").animate({scrollTop:0},800);
+		});
+	</script>
+</body>
+</html>

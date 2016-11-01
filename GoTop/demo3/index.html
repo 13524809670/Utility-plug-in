@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>返回顶部</title>
+	<style type="text/css">
+	body{
+		height: 5000px;
+	}
+	div{
+		background: aqua;
+		font-size: #000;
+		font-size: 14px;
+		width: 50px;
+		height: 50px;
+		position:fixed;
+		left:50%;
+		bottom:90px;
+	}
+	</style>
+</head>
+<body>
+	<div id="gotop">返回顶部</div>
+	<script type="text/javascript">
+		var a = document.getElementById('gotop');
+		var scrollTop = null;
+
+		a.onclick = function(){
+			var timer = setInterval(function(){
+				window.scrollBy(0,-100);
+				if(scrollTop == 0){
+					clearInterval(timer);
+				}
+			},15);//时间可调节
+		}
+
+		window.onscroll=function(){
+			scrollTop = document.documentElement.scrollTop || window.pageYOffsef || document.body.scrollTop;
+			a.style.display = (scrollTop >= 300)? "block":"none";//距离可调节
+		}
+	</script>
+</body>
+</html>

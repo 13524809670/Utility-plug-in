@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放回顶部</title>
+	<style type="text/css">
+		/*返回顶部样式*/
+		#gotop{
+			width: 38px;
+			height: 40px;
+			display: block;
+			position: fixed;
+			left:50%;
+			bottom:100px;
+			margin-left: 610px;
+			background: url(../images/index_pic_gotop_32.jpg) no-repeat;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<!-- 返回顶部 -->
+	<span id="gotop"></span>
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			$(function () {  
+
+				//检测屏幕高度  
+				var a =$(window).height();  
+
+				//scroll() 方法为滚动事件  
+				$(window).scroll(function(){  
+
+					//当滚动距离超过浏览器的高度时
+					if ($(window).scrollTop() > a){  
+
+						//则显示返回顶部按钮
+						$("#gotop").show();  
+					}
+					else{  
+
+						//否则隐藏
+						$("#gotop").hide();  
+					}  
+				});  
+
+				// 点击返回顶部按钮时
+				$("#gotop").click(function(){  
+
+					// 主体内容以 800ms 的速度回到顶部
+					$('body,html').animate({scrollTop:0},800); 
+
+					return false;  
+				});  
+			});  
+		}
+	</script>
+</body>
+</html>

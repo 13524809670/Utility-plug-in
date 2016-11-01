@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tab切换</title>
+	<link rel="stylesheet" href="../../public.css" />
+	<style type="text/css">
+		.box{
+			width: 600px;
+			height: 520px;
+			border:1px solid red;
+			margin:100px auto;
+			/*overflow: hidden;*/
+		}
+		h1{
+			text-align: center;
+			font-size: 30px;
+			height: 50px;
+			line-height: 50px;
+		}
+		.box3{
+			width:600px;
+		}
+		#prev{
+			float: left;
+			margin:30px;
+
+		}
+		#next{
+			float: right;
+			margin:30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h1 id="title">1/3</h1>
+		<div class="box2">
+			<img src="201301281416578921.jpg" id="banner" alt="">
+		</div>
+		<div class="box3">
+			<button id="prev">上一张</button>
+			<button id="next">下一张</button>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var aUrl = ['201301281416578921.jpg','201301251010573290.jpg','201301230949139489.jpg']
+		var title = document.getElementById('title');
+		var banner = document.getElementById('banner');
+		var prev = document.getElementById('prev');
+		var next = document.getElementById('next');
+
+		var a = 0; //变数 = 0
+
+		next.onclick = function(){
+
+			a = a + 1;
+
+			if(a > 2){ a = 0 }
+
+			banner.src = aUrl[a];
+
+			var b = a + 1;
+
+			title.innerHTML = '' + b + '/3';
+
+		}
+
+		prev.onclick = function(){
+
+			a = a - 1;
+
+			if(a < 0){ a = 2 }
+
+			banner.src = aUrl[a];
+
+			var b = a + 1;
+
+			title.innerHTML = '' + b + '/3';
+
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>返回顶部</title>
+	<link rel="stylesheet" type="text/css" href="../../public.css">
+	<style>
+		body{margin:0; padding:0}
+		.box{
+			width: 1200px;
+			background: #333;
+			margin: 0 auto;
+			height:3000px;
+			color: #fff;
+		}
+		#gotop{
+			padding:20px 5px; 
+			font-size: 14px;
+			font-weight: 900;
+			text-align:center;  
+			background:#06c; 
+			position:fixed; 
+			left:50%;
+			bottom:0;
+			margin-left:600px;
+			cursor:pointer; 
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h1>返回顶部</h1>
+	</div>
+	<div id="gotop">返回顶部</div>
+
+	<script type="text/javascript">
+		// 方法（1）
+		// window.onload = function(){
+		// 	var oTop = document.getElementById("to_top");
+		// 	var screenw = document.documentElement.clientWidth || document.body.clientWidth;
+		// 	var screenh = document.documentElement.clientHeight || document.body.clientHeight;
+		// 	oTop.style.left = screenw - oTop.offsetWidth +"px";
+		// 	oTop.style.top = screenh - oTop.offsetHeight + "px";
+		// 	window.onscroll = function(){
+		// 		var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+		// 		oTop.style.top = screenh - oTop.offsetHeight + scrolltop +"px";
+		// 	}
+		// 	oTop.onclick = function(){
+		// 		document.documentElement.scrollTop = document.body.scrollTop =0;
+		// 	}
+		// }
+
+
+		// 方法（2）兼容IE8
+		(function(){
+            var gotop = document.getElementById('gotop');
+            gotop.onclick = function(){
+                window.scrollTo(0,0);
+            }
+        })()
+	</script>
+</body>
+</html>

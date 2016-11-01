@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>input 聚焦失焦 事件</title>
+	<link rel="stylesheet" href="index.css" />
+	<link rel="stylesheet" type="text/css" href="../../public.css" />
+	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+</head>
+<body>
+	<form>
+		<h3>聚焦去值&nbsp;&nbsp;失焦取值</h3>
+		<input type="text" value="姓名:" id="hide" class="left" onfocus="cls()" onblur="res()" />
+
+		<input type="text" value="电话:" id="hide" class="right" onfocus="cls()" onblur="res()" /> 
+
+		<textarea name="" id="tip" cols="30" rows="10">留言:</textarea>
+	</form>
+	<script type="text/javascript">
+
+		// input - 原生 js 聚焦去值  失焦取值(方法一)  
+		function cls(){
+			with(event.srcElement)
+			if(value==defaultValue)value=""
+		}
+	
+		// 失焦取值  
+		function res(){
+			with(event.srcElement)
+			if(value=="")value=defaultValue
+		}
+
+
+		// input - jQuery 聚焦去值  失焦取值(方法一)  
+		/*鼠标点击字体消失效果*/
+		$(document).ready(function(){
+			// $('form input').eq(0).focus(function(e) {       
+			// 		if($(this).val('姓名')){
+			// 		$(this).val('');
+			// 			}
+			//     });
+			// $('form input').eq(0).blur(function(e) {
+			// 	    if($(this).val()==''){
+			//         $(this).val('姓名');
+			// 		}
+			//     });
+
+
+			// $('form input').eq(1).focus(function(e) {
+			//         $(this).val('');
+			//     });
+			// $('form input').eq(1).blur(function(e) {
+			// 	    if($(this).val()==''){
+			//         $(this).val('联系方式');
+			// 		}
+			//     });
+				
+
+			//textarea 聚焦失焦事件
+			$('form textarea').focus(function(e) {
+			        $(this).val('');
+			    });
+			$('form textarea').blur(function(e) {
+				    if($(this).val()==''){
+			        $(this).val('留言');
+					}
+			    });
+			
+			//input 内容不能为空
+			// function chkvalue(txt) {
+			//    if(txt.value=="") {alert("文本框里必须填写内容!")};
+			// }
+
+
+			//nav 选中样式
+		    // $(".fr_nav li").eq(0).css("background","#00e7ff");
+		    // $(".fr_nav li a").eq(0).css("color","#fff")
+
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>缓动对联广告</title>
+	<script type="text/javascript" src="../../jquery-3.0.0.min.js"></script>
+	<link rel="stylesheet" href="../../public.css" />
+	<style type="text/css">
+		body{
+			height: 5000px;
+		}
+		p{
+			width: 20px;
+		}
+		.left,.right{
+			width: 180px;
+			height: 270px;
+		}
+		.left{
+			background:url(../images/1.jpg);
+			position: fixed;
+			top:50px;
+			left:10px;
+		}
+		.right{
+			background:url(../images/2.jpg);
+			position: fixed;
+			top:50px;
+			right:10px;
+		}
+		.left button,.right button{
+			margin-left: 109px;
+			width: 12px;
+			height: 12px;
+		}
+	</style>
+</head>
+<body>
+
+	<p>都是浪费粮食大幅减少对福克斯的风景蓝色的解放了快速大幅拉升的风景开始懂了烦死了的弗兰克斯达克发牢骚的快乐看来都是浪费看看老孙都快疯了上来考虑适当放宽；两大时空裂缝看到了快速翻看看书到了疯狂类似的快乐宽松的礼服；了快速的快乐分；蓝色的看来都是分开螺丝钉看法；乐山大佛；了考虑适当看看老孙的了蓝色的快乐累死了考虑适当放宽了类似的咖啡连锁店力克对手拉开卡洛斯的咖啡；两市低开；乐山大佛看见了四大皆空风流酷似大家来开发经理开始的解放路开始的解放路开始的就反抗螺丝钉解放了快速打击；螺丝钉看法；了快速的了分；伦敦上空；</p>
+
+	<div class="left">
+		<button>X</button>
+	</div>
+
+	<div class="right">
+		<button>X</button>
+	</div>
+
+	<script type="text/javascript">
+		$(function(){
+			var a = $(window).scrollTop() + 50;
+			$(".left,.right")stop().animate({'top':x},1000);
+
+			$('.left button').click(function(){
+				$(this).parent('.left').hide();
+			});
+
+			$('.right button').click(function(){
+				$(this).parent('.right').hide();
+			})
+
+			var a = function(){
+				$('.left,.right').show();
+			}
+			setInterval(a,10000);
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉遮罩</title>
+	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		a{text-decoration: none;}
+		ul,ol,li{list-style: none;}
+		.box{
+			width: 1300px;
+			margin:100px auto;
+		}
+		.box li{
+			float:left; 
+			position:relative; 
+			margin:0 13px 54px;
+		}
+		.box li img{ 
+			vertical-align:bottom;
+			width: 274px;
+			height: 300px;
+		}
+		.mask{ 
+			position:absolute; 
+			bottom:0; 
+			left:0; 
+			display:none;
+		}
+		.mask li{ width:300px; margin:0;}
+		.mask li a{ 
+			font-size:14px; 
+			font-family:"微软雅黑"; 
+			color:#fff;
+		}
+		.mask li span{ 
+			display:block; 
+			width:274px; 
+			text-align:center; 
+			line-height:38px; 
+			background:url(bg8.png); 
+			font-size:16px; 
+			font-family:"微软雅黑"; 
+			color:#fff;
+		}
+		.mask li p{ 
+			width:274px; 
+			text-align:center; 
+			line-height:20px; 
+			padding:13px 0; 
+			background:url(bg9.png);
+
+		}
+		
+	</style>
+</head>
+<body>
+	<ul class="box clearfix">
+		<li>
+			<a href="pro_center.html"><img src="index_pic_03.jpg" alt="bg2"/></a>
+			<ol class="mask">
+				<li><a href="pro_center.html"><span>打造高品质</span></a></li>
+				<li><p><a href="pro_center.html">采用最佳的18/10A+不锈钢，并提供25年的品质保证。</a></p></li>
+			</ol>
+		</li>
+		<li>
+			<a href="pro_center.html"><img src="index_pic_05.jpg" alt="bg3"/></a>
+			<ol class="mask">
+				<li><a href="pro_center.html"><span>打造高品质</span></a></li>
+				<li><p><a href="pro_center.html">采用最佳的18/10A+不锈钢，并提供25年的品质保证。</a></p></li>
+			</ol>
+		</li>
+		<li>
+			<a href="pro_center.html"><img src="index_pic_07.jpg" alt="bg4"/></a>
+			<ol class="mask">
+				<li><a href="pro_center.html"><span>打造高品质</span></a></li>
+				<li><p><a href="pro_center.html">采用最佳的18/10A+不锈钢，并提供25年的品质保证。</a></p></li>
+			</ol>
+		</li>
+		<li>
+			<a href="pro_center.html"><img src="index_pic_09.jpg" alt="bg5"/></a>
+			<ol class="mask">
+				<li><a href="pro_center.html"><span>打造高品质</span></a></li>
+				<li><p><a href="pro_center.html">采用最佳的18/10A+不锈钢，并提供25年的品质保证。</a></p></li>
+			</ol>
+		</li>
+	</ul>
+
+	<script type="text/javascript">
+		$('.box li').hover(function(e){
+	    	$(this).children('.mask').stop(true,true).slideDown(500);
+		},
+		function(){
+			$(this).children('.mask').slideUp(500);
+		});
+	</script>
+</body>
+</html>

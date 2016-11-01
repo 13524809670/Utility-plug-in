@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单初始化</title>
+	<link rel="stylesheet" type="text/css" href="../../public.css" />
+	<style type="text/css">
+		.container { 
+	        width:560px; 
+	        margin:100px auto 0; 
+	     } 
+
+	    input{
+	    	width: 300px;
+	    	height: 36px;
+	    }
+	    p{margin:5px 0;}
+	</style>
+
+</head>
+<body>
+	<form method="post" action="#" name="register" class="container"> 
+		<p> 
+			<label for="user_name">用户名：</label> 
+			<input type="text" value="请输入您的用户名" name="用户名" id="user_name" class="inputs" /><span>*</span> 
+		</p> 
+
+		<p> 
+			<label for="email">邮 箱：</label> 
+			<input type="text" value="请输入您的邮箱" name="邮箱" id="email" class="inputs" /><span>*</span> 
+		</p> 
+
+		<p> 
+			<label for="mobile_phone">手机号：</label> 
+			<input type="mobile_phone" value="请输入您的手机号" name="手机号" id="mobile_phone" class="inputs" /><span>*</span> 
+		</p> 
+
+		<p> 
+			<label for="psw">登录密码：</label> 
+			<input type="password" value="" name="密码" id="psw" class="inputs" /><span>*</span> 
+		</p> 
+
+		<p> 
+			<label for="re_psw">确认密码：</label> 
+			<input type="password" value="" name="密码" id="re_psw" class="inputs" /><span>*</span> 
+		</p> 
+
+		<p> 
+			<input type="submit" value="注册" class="btn" /> 
+		</p> 
+	</form>
+ <script type="text/javascript">
+ 	//window.onload=function(){
+ 		function labelFocus() { 
+		    var labels = document.getElementsByTagName("label"); 
+		     for (var i=0; i<labels.length; i++) { 
+		        var id = labels[i].getAttribute("for"); 
+		        var element = document.getElementById(id); 
+		        element.onclick = function () { 
+		            this.focus(); 
+		        } 
+		    } 
+ 		};
+
+ 		function resetFields() { 
+			var forms = document.forms; 
+			for (var i=0; i<forms.length; i++) { 
+				for (var j=0; j<forms[i].elements.length; j++) { 
+					var element = forms[i].elements[j]; 
+					if (element.type == "submit") continue; 
+					element.onfocus = function() { 
+						if (this.value == this.defaultValue) { 
+							this.value = ""; 
+						} 
+					},
+					element.onblur = function() { 
+						if (this.value == "") { 
+							this.value = this.defaultValue; 
+						} 
+					}; 
+				};
+			};
+		};
+ 	//}
+ </script>
+</body>
+</html>

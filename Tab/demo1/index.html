@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TAB选项卡</title>
+	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+	<style type="text/css">
+		/*方案(1)*/
+		.tab{
+			margin:100px auto;
+			padding:0;
+			list-style:none;
+			width:1000px;
+			overflow:hidden;
+		}
+		.tab li{
+			float:left;
+			width:19%;
+			height:40px;
+			background:#ccc;
+			text-align:center;
+			line-height:40px;
+			cursor:pointer; 
+		}
+		.on{display:block;}
+		.tab li.cur{background:blue;}
+	
+		a{
+			text-decoration: none;
+			color:#000;
+		}
+
+		/*方案(2)*/
+		/*div{margin:0;padding:0;width:184px;height:200px;border:1px solid #ccc;display:none;}
+		.tab_btn{margin:0;padding:0;list-style:none;width:200px;overflow:hidden;}
+		.tab_btn li{float:left;width:60px;height:30px;background:#ccc;color:#fff;border:1px solid red; text-align:center;line-height:30px;cursor:pointer; }
+		.on{display:block;}
+		.tab_btn li.cur{background:blue;}*/
+	</style>
+</head>
+<body>
+	<!-- 方案(1) -->
+	<ul class="tab">
+		<li class="cur"><a href="javascript:;">首页</a></li>
+		<li><a href="javascript:;">公司</a></li>
+		<li><a href="javascript:;">新闻</a></li>
+		<li><a href="javascript:;">产品</a></li>
+		<li><a href="javascript:;">联系</a></li>
+	</ul>
+	<!--  方案(1)  -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".tab li").mouseover(function(){
+				$(".tab li").eq($(this).index()).addClass("cur").siblings().removeClass('cur');
+
+				// $("div").hide().eq($(this).index()).show();
+			//另一种方法: $("div").eq($(".tab li").index(this)).addClass("on").siblings().removeClass('on'); 
+
+			});
+		});
+	</script>
+
+
+
+
+
+	<!-- 方案(2) -->
+	<!-- <ul class="tab_btn">
+       <li><a href="javascript:;">最新</a></li>
+       <li  class="cur"><a href="javascript:;">热门</a></li>
+       <li><a href="">新闻</a></li>
+	</ul>
+	<ul class="tab_bar">
+		<li class="on">首页aaaaaaaa</li>
+		<li>公司aaaaaaaa</li>
+		<li>新闻aaaaaaaa</li>
+	</ul>
+ -->
+
+	<!-- 方案(2)实例(1) -->
+	<script type="text/javascript">
+		// $(function(){	
+		// 	$(".tab_bar li").eq(0).show(),
+		// 	$(".tab_btn li").click(function(e){
+		// 		$(this).addClass("cur").siblings("li").removeClass("cur");
+
+		// 		var i = $(this).index();
+		// 		$(".tab_bar li").eq(i).show().siblings("li").hide();
+		// 	});
+		// })
+	</script>
+
+	<!-- 方案(2)实例(2) -->
+	<script type="text/javascript">
+		// $(document).ready(function(){
+		// 	$(".tab_btn li").click(function(){
+		// 		$(".tab_btn li").eq($(this).index()).addClass("cur").siblings().removeClass('cur');
+		// 		$(".tab_bar").hide().eq($(this).index()).show();
+
+		// 	//另一种方法: $("div").eq($(".tab_btn li").index(this)).addClass("on").siblings().removeClass('on'); 
+
+		// 	});
+		// });
+	</script>
+</body>
+</html>
